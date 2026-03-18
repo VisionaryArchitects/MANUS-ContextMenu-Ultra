@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "MANUS AI Context Menu Ultra",
+  "version": "1.0.0",
+  "description": "One-click AI text processing via right-click context menu. Rewrite, summarize, explain & more with local Ollama.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["llm-processor.js", "content.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "commands": {
+    "quick-rewrite": {
+      "suggested_key": { "default": "Ctrl+Shift+R", "mac": "Command+Shift+R" },
+      "description": "Rewrite selected text (5 alternatives)"
+    },
+    "quick-summarize": {
+      "suggested_key": { "default": "Ctrl+Shift+S", "mac": "Command+Shift+S" },
+      "description": "Summarize selected text"
+    },
+    "quick-explain": {
+      "suggested_key": { "default": "Ctrl+Shift+E", "mac": "Command+Shift+E" },
+      "description": "Explain selected text simply"
+    },
+    "quick-grammar": {
+      "suggested_key": { "default": "Ctrl+Shift+G", "mac": "Command+Shift+G" },
+      "description": "Polish grammar and clarity"
+    }
+  }
+}
