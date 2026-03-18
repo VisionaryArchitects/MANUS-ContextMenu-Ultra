@@ -1,0 +1,26 @@
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets / local overrides
+config.local.js
+.env
+.env.local
+
+# Build / dist
+dist/
+build/
+node_modules/
+
+# Temp
+*.tmp
+*.bak
